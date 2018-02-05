@@ -11,12 +11,12 @@ ENV https_proxy=""
 # Install tooling
 RUN apk add --update \
    ca-certificates \
-   git \
+   #git \
    python3 \
    python3-dev \
    py3-netifaces \
    build-base \
-   libffi \
+   #libffi \
    libffi-dev \
    openssl-dev \
 # install powerseal
