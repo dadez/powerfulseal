@@ -18,6 +18,7 @@ RUN apk add --update \
    build-base \
    libffi \
    libffi-dev \
+   openssl-dev \
 # install powerseal
    && pip3 install powerfulseal 
 
