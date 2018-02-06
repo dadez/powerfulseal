@@ -20,7 +20,7 @@ RUN apk add --update \
    libffi-dev \
    openssl-dev \
 # install powerseal
-   && pip3 install powerfulseal 
+   && pip3 install powerfulseal \
    && pip3 install os-client-config
 
 
