@@ -21,6 +21,7 @@ RUN apk add --update \
    openssl-dev \
 # install powerseal
    && pip3 install powerfulseal 
+   && pip3 install os-client-config
 
 
 # Remove obsolete packages
