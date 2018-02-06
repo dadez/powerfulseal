@@ -1,24 +1,10 @@
 FROM alpine:3.7
 MAINTAINER dadez <dadez@protonmail.com>
 
-# Build-time metadata as defined at http://label-schema.org
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
-LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="powerfulseal" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/bloomberg/powerfulseal" \
-      org.label-schema.version=$VERSION \
-      org.label-schema.schema-version="1.0"
- 
 #override proxy settings
 ENV http_proxy=""
 ENV https_proxy=""
 
-#ENV CFLAGS=-Qunused-arguments
-#ENV CPPFLAGS=-Qunused-arguments
- 
 # Install tooling
 RUN apk add --update \
    ca-certificates \
@@ -27,7 +13,6 @@ RUN apk add --update \
    python3-dev \
    py3-netifaces \
    build-base \
-   #libffi \
    libffi-dev \
    openssl-dev \
 # install powerseal
@@ -36,6 +21,12 @@ RUN apk add --update \
 
 
 # Remove obsolete packages
+RUN apk del \
+   python3-dev \
+   build-base \
+   openssl-dev \
+   libffi-dev
+
 # Clean caches and tmps
 RUN rm -rf /var/cache/apk/* \
     /tmp/* \
