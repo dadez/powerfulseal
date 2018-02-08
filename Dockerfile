@@ -31,7 +31,3 @@ RUN apk del \
 RUN rm -rf /var/cache/apk/* \
     /tmp/* \
     /var/log/*
-
-# run a listener for look if it then persists in k8s
-EXPOSE 5000
-CMD ["nc", "-l", "5000"]
